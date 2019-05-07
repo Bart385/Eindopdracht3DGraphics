@@ -24,6 +24,16 @@ void move(float angle, float fac)
 	camera.posY += (float)sin((camera.rotY + angle) / 180 * M_PI) * fac;
 }
 
+void drawCircle(float r, float x, float y) {
+	float i = 0.0f;
+	glBegin(GL_TRIANGLE_FAN);
+
+	glVertex2f(x, y); // Center
+	for (i = 0.0f; i <= 360; i++)
+		glVertex3f(r*cos(M_PI * i / 180.0) + x,-1, r*sin(M_PI * i / 180.0) + y);
+	glEnd();
+}
+
 void display()
 {
 	glClearColor(0.6f, 0.6f, 1, 1);
@@ -31,7 +41,7 @@ void display()
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPerspective(60.0f, (float)width / height, 0.1, 30);
+	gluPerspective(60.0f, (float)width / height, 0.1, 60);
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
@@ -59,8 +69,39 @@ void display()
 		}
 	}
 
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glBegin(GL_QUADS);
+	glVertex3f(-15, -1, -15);
+	glVertex3f(-15, 15, -15);
+	glVertex3f(15, 15, -15);
+	glVertex3f(15, -1, -15);
+	glEnd();
+
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glBegin(GL_QUADS);
+	glVertex3f(-15, -1, 15);
+	glVertex3f(-15, 15, 15);
+	glVertex3f(15, 15, 15);
+	glVertex3f(15, -1, 15);
+	glEnd();
+
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glBegin(GL_QUADS);
+	glVertex3f(-15, -1, 15);
+	glVertex3f(-15, 15, 15);
+	glVertex3f(-15, 15, -15);
+	glVertex3f(-15, -1, -15);
+	glEnd();
+
+	glColor3f(1.0f, 0.0f, 0.0f);
+	drawCircle(1.0f, 0.0f, 0.0f);
+
+	
+
 	glutSwapBuffers();
 }
+
+
 
 bool justMovedMouse = false;
 void mousePassiveMotion(int x, int y)
