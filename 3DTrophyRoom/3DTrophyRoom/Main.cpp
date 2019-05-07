@@ -28,7 +28,7 @@ void drawCircle(float r, float x, float y) {
 	float i = 0.0f;
 	glBegin(GL_TRIANGLE_FAN);
 
-	glVertex2f(x, y); // Center
+	glVertex3f(x,0, y); // Center
 	for (i = 0.0f; i <= 360; i++)
 		glVertex3f(r*cos(M_PI * i / 180.0) + x,-1, r*sin(M_PI * i / 180.0) + y);
 	glEnd();
@@ -93,8 +93,22 @@ void display()
 	glVertex3f(-15, -1, -15);
 	glEnd();
 
+	
+
 	glColor3f(1.0f, 0.0f, 0.0f);
-	drawCircle(1.0f, 0.0f, 0.0f);
+	glBegin(GL_QUADS);
+	glVertex3f(15, -0.99, -3);
+	glVertex3f(15, -0.99, 3);
+	glVertex3f(-15, -0.99, 3);
+	glVertex3f(-15, -0.99, -3);
+	glEnd();
+
+
+	for (int i = -13;  i < 12 ;  i += 3)
+	{
+		drawCircle(1.0f, (float) i, 13.0f);
+	}
+	
 
 	
 
@@ -154,7 +168,7 @@ void idle()
 int main(int argc, char* argv[])
 {
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
-	glutInitWindowSize(800, 600);
+	glutInitWindowSize(1920, 1080);
 	glutInit(&argc, argv);
 	glutCreateWindow("Hello World");
 
