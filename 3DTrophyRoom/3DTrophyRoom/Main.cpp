@@ -38,6 +38,8 @@ void drawCircle(float r, float x, float y) {
 
 void display()
 {
+	
+
 	glClearColor(0.6f, 0.6f, 1, 1);
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 
@@ -51,6 +53,7 @@ void display()
 	glRotatef(camera.rotY, 0, 1, 0);
 	glTranslatef(camera.posX, 0, camera.posY);
 
+	
 
 	glColor3f(1.0f,1.0f,1.0f);
 	glBegin(GL_QUADS);
@@ -112,11 +115,14 @@ void display()
 	}
 	
 
+	
 	Texture texture = Texture(textureFilename);
 	texture.loadTextureFromFile(textureFilename);
 	texturePack = texture.getTextureId();
 
-	CubeComponent* component = new CubeComponent(1, 15);
+	CubeComponent* component = new CubeComponent(texturePack, 11,0.8,13);
+	component->draw();
+	
 
 	glutSwapBuffers();
 }

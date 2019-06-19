@@ -9,10 +9,10 @@ class CubeComponent: public DrawComponent
 private:
 
 	GLuint textureID;
-	int size;
+	int middelpuntx, middelpunty, middelpuntz;
 
 public:
-	CubeComponent(GLuint textureID, int size);
+	CubeComponent(GLuint textureID, int middelpuntx, int middelpunty, int middelpuntz);
 	~CubeComponent();
 	virtual void draw() override;
 #
