@@ -2,11 +2,13 @@
 #include <cstdio>
 #define _USE_MATH_DEFINES
 #include <cmath>
-
+#include "CubeComponent.h"
+#include "ObjectModel.h"
 float lastFrameTime = 0;
 
 int width, height;
-
+GLuint texturePack;
+const char* textureFilename = "mblock1.png";
 
 struct Camera
 {
@@ -110,7 +112,11 @@ void display()
 	}
 	
 
-	
+	Texture texture = Texture(textureFilename);
+	texture.loadTextureFromFile(textureFilename);
+	texturePack = texture.getTextureId();
+
+	CubeComponent* component = new CubeComponent(1, 15);
 
 	glutSwapBuffers();
 }

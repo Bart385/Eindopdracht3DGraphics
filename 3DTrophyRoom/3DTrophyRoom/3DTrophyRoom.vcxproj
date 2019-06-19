@@ -115,10 +115,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Component.cpp" />
+    <ClCompile Include="CubeComponent.cpp" />
+    <ClCompile Include="DrawComponent.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="ObjectModel.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Component.h" />
+    <ClInclude Include="CubeComponent.h" />
+    <ClInclude Include="DrawComponent.h" />
+    <ClInclude Include="ObjectModel.h" />
+    <ClInclude Include="stb_image.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\Pictures\mblock1.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
