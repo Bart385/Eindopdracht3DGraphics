@@ -7,13 +7,16 @@
 #include "LightComponent.h"
 #include "MoveToComponent.h"
 #include "GameObject.h"
+#include "RoomComponent.h"
 float lastFrameTime = 0;
 
+int xMoving = 0;
 int width, height;
 GLuint texturePack;
 const char* textureFilename = "mblock1.png";
 LightComponent* licht;
 bool done = false;
+bool rechts = false;
 struct Camera
 {
 	float posX = 0;
@@ -40,6 +43,8 @@ void drawCircle(float r, float x, float y) {
 	glEnd();
 }
 
+
+
 void display()
 {
 	
@@ -58,94 +63,34 @@ void display()
 	glTranslatef(camera.posX, 0, camera.posY);
 
 	
-
-	glColor3f(1.0f,1.0f,1.0f);
-	glBegin(GL_QUADS);
-	glVertex3f(-15, -1, -15);
-	glVertex3f(15, -1, -15);
-	glVertex3f(15, -1, 15);
-	glVertex3f(-15, -1, 15);
-	glEnd();
-
-	for (int x = -10; x <= 10; x += 5)
-	{
-		for (int y = -10; y <= 10; y += 5)
-		{
-
-			glPushMatrix();
-			glTranslatef((float)x, 0.0f, (float)y);
-			glPopMatrix();
-		}
-	}
-
-	glColor3f(0.0f, 0.0f, 0.0f);
-	glBegin(GL_QUADS);
-	glVertex3f(-15, -1, -15);
-	glVertex3f(-15, 15, -15);
-	glVertex3f(15, 15, -15);
-	glVertex3f(15, -1, -15);
-	glEnd();
-
-	glColor3f(0.0f, 0.0f, 0.0f);
-	glBegin(GL_QUADS);
-	glVertex3f(-15, -1, 15);
-	glVertex3f(-15, 15, 15);
-	glVertex3f(15, 15, 15);
-	glVertex3f(15, -1, 15);
-	glEnd();
-
-	glColor3f(0.0f, 0.0f, 0.0f);
-	glBegin(GL_QUADS);
-	glVertex3f(-15, -1, 15);
-	glVertex3f(-15, 15, 15);
-	glVertex3f(-15, 15, -15);
-	glVertex3f(-15, -1, -15);
-	glEnd();
-
-	
-
-	glColor3f(1.0f, 0.0f, 0.0f);
-	glBegin(GL_QUADS);
-	glVertex3f(15, -0.99, -3);
-	glVertex3f(15, -0.99, 3);
-	glVertex3f(-15, -0.99, 3);
-	glVertex3f(-15, -0.99, -3);
-	glEnd();
-
-
 	for (int i = -13;  i < 12 ;  i += 3)
 	{
 		drawCircle(1.0f, (float) i, 13.0f);
 	}
 	
-
-	
 	Texture texture = Texture(textureFilename);
 	texture.loadTextureFromFile(textureFilename);
 	texturePack = texture.getTextureId();
-	MoveToComponent* move = new MoveToComponent();
-	CubeComponent* mcBlock = new CubeComponent(texturePack, 11,0.8,13, 0.0f, 1.0f);
-	mcBlock->draw();
+	RoomComponent* Rc = new RoomComponent();
+	CubeComponent* mcBlock = new CubeComponent(texturePack, 11, 0.8, 13, 0.0f, 1.0f);
 	CubeComponent* MarioBlock = new CubeComponent(texturePack, 8, 0.8, 13, 1.0f, 2.0f);
-	MarioBlock->draw();
-
 	GameObject* Go = new GameObject(1);
-	CubeComponent* MarioBlockTest = new CubeComponent(texturePack, -8, 10, -13, 1.0f, 2.0f);
-	MarioBlockTest->draw();
-	Go->addComponent(new MoveToComponent());
-	Go->getComponent<MoveToComponent>()->target = Vec3f(-8, 0, -13);
+	CubeComponent* MarioBlockTest = new CubeComponent(texturePack, xMoving/3, 0.8, -13, 1.0f, 2.0f);
 
-	
-	
+	Rc->draw();
+	mcBlock->draw();
+	MarioBlock->draw();
+	MarioBlockTest->draw();
+
 	if (done == false) {
 		licht = new LightComponent(1.0, 4.0, 1.0);
 		licht->draw();
 	
 	 }
-
-
+	
 	glutSwapBuffers();
 }
+
 
 
 
@@ -200,6 +145,17 @@ void idle()
 		licht->lightOff();
 		done = true;
 	}
+	if (rechts == false)
+	{
+		xMoving += 1;
+		if (xMoving == 10)  rechts = true;
+		
+	}
+	if (rechts == true)
+	{
+		xMoving -= 1;
+		if (xMoving == 0)  rechts = false;
+	}
 
 	glutPostRedisplay();
 }
@@ -212,7 +168,7 @@ int main(int argc, char* argv[])
 	glutInitWindowSize(1920, 1080);
 	glutInit(&argc, argv);
 	glutCreateWindow("Hello World");
-
+	
 	memset(keys, 0, sizeof(keys));
 	glEnable(GL_DEPTH_TEST);
 
@@ -224,7 +180,7 @@ int main(int argc, char* argv[])
 	glutPassiveMotionFunc(mousePassiveMotion);
 
 	glutWarpPointer(width / 2, height / 2);
-
+	
 	glutMainLoop();
 
 
