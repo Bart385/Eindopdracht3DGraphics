@@ -5,6 +5,8 @@
 #include "CubeComponent.h"
 #include "ObjectModel.h"
 #include "LightComponent.h"
+#include "MoveToComponent.h"
+#include "GameObject.h"
 float lastFrameTime = 0;
 
 int width, height;
@@ -121,11 +123,19 @@ void display()
 	Texture texture = Texture(textureFilename);
 	texture.loadTextureFromFile(textureFilename);
 	texturePack = texture.getTextureId();
-
+	MoveToComponent* move = new MoveToComponent();
 	CubeComponent* mcBlock = new CubeComponent(texturePack, 11,0.8,13, 0.0f, 1.0f);
 	mcBlock->draw();
 	CubeComponent* MarioBlock = new CubeComponent(texturePack, 8, 0.8, 13, 1.0f, 2.0f);
 	MarioBlock->draw();
+
+	GameObject* Go = new GameObject(1);
+	CubeComponent* MarioBlockTest = new CubeComponent(texturePack, -8, 10, -13, 1.0f, 2.0f);
+	MarioBlockTest->draw();
+	Go->addComponent(new MoveToComponent());
+	Go->getComponent<MoveToComponent>()->target = Vec3f(-8, 0, -13);
+
+	
 	
 	if (done == false) {
 		licht = new LightComponent(1.0, 4.0, 1.0);
