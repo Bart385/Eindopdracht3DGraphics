@@ -1,11 +1,3 @@
-﻿  Main.cpp
-c:\users\bartv\desktop\eindopdracht3dgraphics\3dtrophyroom\3dtrophyroom\main.cpp(35): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\bartv\desktop\eindopdracht3dgraphics\3dtrophyroom\3dtrophyroom\main.cpp(105): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\bartv\desktop\eindopdracht3dgraphics\3dtrophyroom\3dtrophyroom\main.cpp(106): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\bartv\desktop\eindopdracht3dgraphics\3dtrophyroom\3dtrophyroom\main.cpp(107): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\bartv\desktop\eindopdracht3dgraphics\3dtrophyroom\3dtrophyroom\main.cpp(108): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\bartv\desktop\eindopdracht3dgraphics\3dtrophyroom\3dtrophyroom\main.cpp(123): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\bartv\desktop\eindopdracht3dgraphics\3dtrophyroom\3dtrophyroom\main.cpp(123): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\bartv\desktop\eindopdracht3dgraphics\3dtrophyroom\3dtrophyroom\main.cpp(125): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\bartv\desktop\eindopdracht3dgraphics\3dtrophyroom\3dtrophyroom\main.cpp(125): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+﻿  LightComponent.cpp
+c:\users\bartv\desktop\eindopdracht3dgraphics\3dtrophyroom\3dtrophyroom\lightcomponent.cpp(30): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
   3DTrophyRoom.vcxproj -> C:\Users\bartv\Desktop\Eindopdracht3DGraphics\3DTrophyRoom\x64\Debug\3DTrophyRoom.exe

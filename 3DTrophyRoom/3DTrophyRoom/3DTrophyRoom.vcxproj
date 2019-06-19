@@ -118,6 +118,7 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="CubeComponent.cpp" />
     <ClCompile Include="DrawComponent.cpp" />
+    <ClCompile Include="LightComponent.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ObjectModel.cpp" />
   </ItemGroup>
@@ -125,6 +126,7 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="CubeComponent.h" />
     <ClInclude Include="DrawComponent.h" />
+    <ClInclude Include="LightComponent.h" />
     <ClInclude Include="ObjectModel.h" />
     <ClInclude Include="stb_image.h" />
   </ItemGroup>

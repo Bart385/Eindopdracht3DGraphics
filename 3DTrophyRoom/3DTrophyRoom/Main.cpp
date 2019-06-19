@@ -4,12 +4,14 @@
 #include <cmath>
 #include "CubeComponent.h"
 #include "ObjectModel.h"
+#include "LightComponent.h"
 float lastFrameTime = 0;
 
 int width, height;
 GLuint texturePack;
 const char* textureFilename = "mblock1.png";
-
+LightComponent* licht;
+bool done = false;
 struct Camera
 {
 	float posX = 0;
@@ -39,8 +41,8 @@ void drawCircle(float r, float x, float y) {
 void display()
 {
 	
-
-	glClearColor(0.6f, 0.6f, 1, 1);
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	glEnable(GL_COLOR_MATERIAL);
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 
 	glMatrixMode(GL_PROJECTION);
@@ -124,6 +126,12 @@ void display()
 	mcBlock->draw();
 	CubeComponent* MarioBlock = new CubeComponent(texturePack, 8, 0.8, 13, 1.0f, 2.0f);
 	MarioBlock->draw();
+	
+	if (done == false) {
+		licht = new LightComponent(1.0, 4.0, 1.0);
+		licht->draw();
+	
+	 }
 
 
 	glutSwapBuffers();
@@ -173,6 +181,15 @@ void idle()
 	if (keys['d']) move(180, deltaTime*speed);
 	if (keys['w']) move(90, deltaTime*speed);
 	if (keys['s']) move(270, deltaTime*speed);
+	if (keys['i']) {
+		licht->lightOn(); 
+		done = false;
+	}
+	if (keys['o'])
+	{
+		licht->lightOff();
+		done = true;
+	}
 
 	glutPostRedisplay();
 }
