@@ -62,7 +62,7 @@ void display()
 	glRotatef(camera.rotY, 0, 1, 0);
 	glTranslatef(camera.posX, 0, camera.posY);
 
-	
+	glColor3f(1.0f, 0.0f, 0.0f);
 	for (int i = -13;  i < 12 ;  i += 3)
 	{
 		drawCircle(1.0f, (float) i, 13.0f);
@@ -74,13 +74,14 @@ void display()
 	RoomComponent* Rc = new RoomComponent();
 	CubeComponent* mcBlock = new CubeComponent(texturePack, 11, 0.8, 13, 0.0f, 1.0f);
 	CubeComponent* MarioBlock = new CubeComponent(texturePack, 8, 0.8, 13, 1.0f, 2.0f);
-	GameObject* Go = new GameObject(1);
+	CubeComponent* pijlBlock = new CubeComponent(texturePack, 5, 0.8, 13, 2.0f, 3.0f);
 	CubeComponent* MarioBlockTest = new CubeComponent(texturePack, xMoving/3, 0.8, -13, 1.0f, 2.0f);
 
 	Rc->draw();
 	mcBlock->draw();
 	MarioBlock->draw();
 	MarioBlockTest->draw();
+	pijlBlock->draw();
 
 	if (done == false) {
 		licht = new LightComponent(1.0, 4.0, 1.0);

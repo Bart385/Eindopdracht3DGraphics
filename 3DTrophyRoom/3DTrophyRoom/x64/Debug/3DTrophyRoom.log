@@ -4,7 +4,9 @@ c:\users\bartv\desktop\eindopdracht3dgraphics\3dtrophyroom\3dtrophyroom\main.cpp
 c:\users\bartv\desktop\eindopdracht3dgraphics\3dtrophyroom\3dtrophyroom\main.cpp(75): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 c:\users\bartv\desktop\eindopdracht3dgraphics\3dtrophyroom\3dtrophyroom\main.cpp(76): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 c:\users\bartv\desktop\eindopdracht3dgraphics\3dtrophyroom\3dtrophyroom\main.cpp(76): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\bartv\desktop\eindopdracht3dgraphics\3dtrophyroom\3dtrophyroom\main.cpp(77): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\bartv\desktop\eindopdracht3dgraphics\3dtrophyroom\3dtrophyroom\main.cpp(77): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 c:\users\bartv\desktop\eindopdracht3dgraphics\3dtrophyroom\3dtrophyroom\main.cpp(78): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 c:\users\bartv\desktop\eindopdracht3dgraphics\3dtrophyroom\3dtrophyroom\main.cpp(78): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\bartv\desktop\eindopdracht3dgraphics\3dtrophyroom\3dtrophyroom\main.cpp(86): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\bartv\desktop\eindopdracht3dgraphics\3dtrophyroom\3dtrophyroom\main.cpp(87): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   3DTrophyRoom.vcxproj -> C:\Users\bartv\Desktop\Eindopdracht3DGraphics\3DTrophyRoom\x64\Debug\3DTrophyRoom.exe

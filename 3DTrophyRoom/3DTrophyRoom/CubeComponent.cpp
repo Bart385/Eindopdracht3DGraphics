@@ -5,7 +5,7 @@
 #include <iostream>
 
 int textureID, middelpuntx, middelpunty,middelpuntz, startPos, endPos;
-int packAantal = 2;
+int packAantal = 3;
 CubeComponent::CubeComponent(GLuint textureID, int middelpuntx, int middelpunty, int middelpuntz, int startPos, int endPos)
 {
 	this->textureID = textureID;
