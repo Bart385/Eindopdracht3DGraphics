@@ -120,9 +120,11 @@ void display()
 	texture.loadTextureFromFile(textureFilename);
 	texturePack = texture.getTextureId();
 
-	CubeComponent* component = new CubeComponent(texturePack, 11,0.8,13);
-	component->draw();
-	
+	CubeComponent* mcBlock = new CubeComponent(texturePack, 11,0.8,13, 0.0f, 1.0f);
+	mcBlock->draw();
+	CubeComponent* MarioBlock = new CubeComponent(texturePack, 8, 0.8, 13, 1.0f, 2.0f);
+	MarioBlock->draw();
+
 
 	glutSwapBuffers();
 }
